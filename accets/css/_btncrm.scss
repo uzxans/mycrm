@@ -1,0 +1,176 @@
+.btn_srm {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  color: #fff;
+  background: $color;
+  border-radius: 21px;
+  border: 3px solid $body-bg;
+  padding: 0.2rem 1rem;
+  transition: ease-in-out all .3s;
+  margin-right: 5px;
+
+  &:hover {
+    transition: ease-in-out all .3s;
+    border: 3px solid $white;
+  }
+
+  img {
+    margin: 0 .5rem;
+  }
+
+  i {
+    transform: rotate(0.5turn);
+    margin: 0 .1rem;
+  }
+}
+
+
+
+.btnLink {
+  text-decoration: none;
+  position: relative;
+  padding: 0.5rem 0.8rem;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  display: flex;
+  place-items: center;
+  border-radius: $borderRadius; // как на фото, овальная форма
+  z-index: 1;
+  color: $color; // цвет текста
+  background: #fff; // белый фон
+  border: 3px solid transparent;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(170deg, #DFFAC7, #22BB77);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: $transition;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $bgColor;
+    z-index: -1;
+    transition: $transition;
+    animation: rotateBorderOut .3s linear forwards;
+  }
+
+  &:hover {
+    border-color: $white;
+    transition: $transition;
+    color: $white;
+
+    &::before {
+      transition: $transition;
+      animation: rotateBorder .3s linear forwards;
+    }
+
+    img {
+      filter: brightness(0) invert(1) sepia(1) hue-rotate(180deg);
+    }
+  }
+
+  span {
+    margin-right: 0.3rem;
+  }
+}
+
+@keyframes rotateBorder {
+  from {
+    margin-bottom: -2%;
+  }
+
+  to {
+    bottom: 0%;
+  }
+}
+
+@keyframes rotateBorderOut {
+  from {
+    bottom: 0%;
+  }
+
+  to {
+    margin-bottom: -2%;
+
+  }
+}
+
+
+
+.btn_box {
+  background: linear-gradient(359deg, #daea8f 5.38%, #2b7 42.62%, #2b7 78.74%, #daea8f 100%);
+  border-radius: 25px;
+  padding: .3rem;
+  margin-bottom: 1rem;
+  // max-width: max-content;
+
+  .btn_add_object {
+    display: flex;
+    align-items: center;
+    place-items: center;
+    background: linear-gradient(359deg, #daea8f 5.38%, #2b7 42.62%, #2b7 78.74%, #daea8f 100%);
+    color: $white;
+    border-radius: $borderRadius;
+    font-weight: 600;
+    // font-size: 21px;
+    letter-spacing: 0.06em;
+    padding: .2rem 1rem;
+    text-decoration: none;
+    justify-content: space-between;
+    border: $white 3px solid;
+
+    img {
+      margin: 0 .3rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 4px 6px 0 rgba(34, 97, 100, 0.29);
+      background: $color;
+      transition: $transition;
+    }
+  }
+}
+
+
+.btn-defoult {
+  box-shadow: 0 4px 4px 0 rgba(198, 199, 193, 0.4);
+  background: #2b7;
+  border-radius: $borderRadius;
+  color: $white;
+
+  &:is(:hover, :focus) {
+    outline: 1px solid #1bea8e;
+    /* цвет рамки можно поменять */
+    outline-offset: 3px;
+    transition: $transition;
+    background: #2b7;
+    color: $white;
+  }
+}
+
+
+.btn-send {
+  box-shadow: 0 4px 4px 0 rgba(198, 199, 193, 0.4);
+  background: #2b7;
+  border-radius: $borderRadius;
+  color: $white;
+
+  &:is(:hover, :focus) {
+    outline: 1px solid #1bea8e;
+    /* цвет рамки можно поменять */
+    outline-offset: 3px;
+    transition: $transition;
+    background: #2b7;
+    color: $white;
+  }
+}

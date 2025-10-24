@@ -1,0 +1,12 @@
+RewriteEngine On
+# Перенаправляем все запросы на default.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ default.php?page=$1 [QSA,L]
+
+# Или если хотите красивые URL без параметров
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ default.php?page=$1 [L,QSA]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
