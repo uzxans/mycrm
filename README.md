@@ -1,1 +1,2 @@
 # mycrm
+#config.php
