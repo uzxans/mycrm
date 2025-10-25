@@ -32,22 +32,7 @@ if ($status == 1){
     $status = 'Работает';
 }
 
-if($user['telegram_chat_id']){
-    if($firstcoord['id'] == $user['id'] || $user['id'] == $user['id']) {
-        $telegramBotToken ='7461998421:AAEHevutQdtln1I3TRtxbdqQ7U5RD8x0JBY';
-        $telegramChatId = $user['telegram_chat_id'];
-    } else {
-        $telegramBotToken = '7461998421:AAEHevutQdtln1I3TRtxbdqQ7U5RD8x0JBY';
-        $telegramChatId = '-1001591451200';
-    }
-}
- else {
-    // Подключение к Telegram API
-    $telegramBotToken = '7461998421:AAEHevutQdtln1I3TRtxbdqQ7U5RD8x0JBY';
-    $telegramChatId = '-1001591451200';
-}
 
-//-1001591451200
 
 // Формирование текста сообщения
 $message .= "Кандидат: " . $_POST['candidate'] . "\n";
