@@ -49,7 +49,7 @@
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
 
-<script src="/new/accets/js/lk.js"></script>
+
 
 <script src="/new/accets/js/main.js"></script>
 
@@ -66,7 +66,7 @@
         if (window.innerWidth <= 480) {
             script.src = '/new/accets/js/mobile-main.js';
         } else {
-            script.src = '/new/accets/js/desktop-main.js';
+            script.src = '/new/accets/js/desktop-main.js?v=1.12';
         }
 
         document.head.appendChild(script);

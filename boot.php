@@ -163,3 +163,19 @@ function poddomen()
 {
     echo '/new';
 }
+
+function probels($data)
+{
+
+// Удаляет все пробелы (пробел)
+    $text = str_replace(' ', '', $data);
+
+// Удаляет все пробельные символы (пробелы, табы, переносы строк)
+    $text_regex = preg_replace('/\s+/', '', $data);
+echo $text_regex;
+}
+
+function removeAllWhitespace($data)
+{
+    return preg_replace('/\s+/', '', $data);
+}
