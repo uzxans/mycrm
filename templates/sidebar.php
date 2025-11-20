@@ -1,4 +1,4 @@
-<div class="sidebar">
+<div class="sidebar activeSidebar">
     <div class="logo_box">
         <img src="./accets/img/logo/logo.svg" alt="" class="logo_img">
         <img src="./accets/img/logo/logo_mob.svg" alt="" class="logo_img_mob">
@@ -55,7 +55,7 @@
     <!-- end menu -->
 
     <div class="exit_box">
-        <form method="post" action="/do_logout.php">
+        <form method="post" action="/new/do_logout.php">
             <button class="icon_btn">
                 <i class="exit-icon"></i>
                 <span class="alertcrm">Выход из системы</span>

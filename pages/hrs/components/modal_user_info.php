@@ -4,7 +4,10 @@
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Душин Дмитрий Витальевич</h5>
         <button type="button" class="btn-close text-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+
     <div class="offcanvas-body user_info_modal">
+        <form id="candidateForm" >
+            <input type="hidden" name="id" class="iduser"  value="">
         <div class="user_info">
             <div class="user_info_item">
                 <div class="status_img">
@@ -13,49 +16,51 @@
                     </div>
                     <div class="status">
                         <label for="exampleFormControlInput1" class="form-label">Статус</label>
-                        <select class="form-select status_new" aria-label="Default select example">
-                            <option selected>Соискатель</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select status_new" aria-label="Default select example" name="status">
+                            <?php
+                                foreach ($statuses as $valueStatus){
+                                    ?>
+                                    <option value="<?php echo $valueStatus['id']?>"><?php echo $valueStatus['name_status']?></option>
+                                <?php }
+                            ?>
                         </select>
                     </div>
                     <div class="fio">
                         <label for="exampleFormControlInput2" class="form-label">ФИО</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" name="full_name" value="">
                     </div>
                 </div>
                 <div class="info_body">
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Профессия</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                        <input type="text" class="form-control" name="profession"
+                               placeholder="Не указан">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Телефон номер</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                        <input type="text" class="form-control" name="phone"
+                               placeholder="Не указан">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Гражданство</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                        <input type="text" class="form-control" name="country"
+                               placeholder="Не указан">
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Дата рождения</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                        <input type="text" class="form-control" name="birth_date"
+                               placeholder="Не указан">
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">ИНН патента</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                               placeholder="Не указан" name="inn_patent">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Дата окончания</label>
+                        <label for="exampleFormControlInput1" class="form-label">Город</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                               placeholder="Не указан" name="city">
                     </div>
                 </div>
             </div>
@@ -69,45 +74,46 @@
                     </div>
                     <div class="col-sm-7 col-md-8 col-xl-9 d-flex align-items-center gap-1">
                         <img src="./accets/fonts/icon/hr-icon.svg" alt="hr">
-                        <h6 class="mb-0">Приходько Виктория</h6>
-                        <!-- <div class="edit">
+                        <h6 class="mb-0 hrtitle" id="hr">Приходько Виктория</h6>
+                        <div class="edit">
                                           <input type="text" class="form-control">
-                                        </div> -->
+                                        </div>
                     </div>
                 </div>
                 <div class="info_body">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Объект</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>ОООПолитПром(ПМП)</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <label for="object" class="form-label">Объект</label>
+                        <select class="form-select" aria-label="objects" name="object">
+                            <?php
+                            foreach ($objects as $valueObject){
+                                echo '<option value="'.$valueObject['id'].'">'.$valueObject['name'].'</option>';
+                            }?>
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Менеджер объекта</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                               placeholder="Не указан" name="manager_name" disabled>
                     </div>
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">Адрес</label>
                         <input type="text" class="form-control" id="exampleFormControlInput1"
-                               placeholder="name@example.com">
+                               placeholder="Не указан">
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Метроя</label>
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Автово</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <label for="metro" class="form-label">Метро</label>
+                        <select class="form-select" aria-label="metro" name="metro">
+                            <?php foreach ($metros as $metro){?>
+                            <option value="<?=$metro['id']?>"><?=$metro['name_metro']?></option>
+                            <?php } ?>
                         </select>
                     </div>
                 </div>
             </div>
+            <button type="submit"  class="btn_srm p-2 justify-content-center">Сохранить</button>
         </div>
         <!--End user info-->
+        </form>
 
         <div class="comment_box">
             <nav>
@@ -129,103 +135,10 @@
                         <textarea class="form-control new_comment" row="9" name="" id=""></textarea>
                         <button class="btn btn-send m-2 position-absolute  bottom-0 end-0">Отправить</button>
                     </div>
+
                     <!--Comment loading-->
-                    <ol class="comments_row my-5">
-                        <li class="comment_one">
-                            <div class="comment_name">Приходько Виктория</div>
-                            <div class="comment_body">
-                        <textarea class="text_comment" name="" id=""
-                                  row="3">запил больше обычного нет 10 дней на смене уволен 14.05.25</textarea>
-                                <div class="comment_body_footer">
-                                    <div class="btn_box_comment">
-                                        <button class="btn" type="button"><img
-                                                src="./accets/fonts/icon/comment_trashcan-outline.svg" alt=""></button>
-                                        <button class="btn" type="button"><img src="./accets/fonts/icon/comment_edit.svg"
-                                                                               alt=""></button>
-                                    </div>
-                                    <div class="comment_date">
-                                        <img src="./accets/fonts/icon/calendar.svg" alt="">
-                                        2025-05-14
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment_one">
-                            <div class="comment_name">Приходько Виктория</div>
-                            <div class="comment_body">
-                        <textarea class="text_comment" name="" id=""
-                                  row="3">запил больше обычного нет 10 дней на смене уволен 14.05.25</textarea>
-                                <div class="comment_body_footer">
-                                    <div class="btn_box_comment">
-                                        <button class="btn" type="button"><img
-                                                src="./accets/fonts/icon/comment_trashcan-outline.svg" alt=""></button>
-                                        <button class="btn" type="button"><img src="./accets/fonts/icon/comment_edit.svg"
-                                                                               alt=""></button>
-                                    </div>
-                                    <div class="comment_date">
-                                        <img src="./accets/fonts/icon/calendar.svg" alt="">
-                                        2025-05-14
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment_one">
-                            <div class="comment_name">Приходько Виктория</div>
-                            <div class="comment_body">
-                        <textarea class="text_comment" name="" id=""
-                                  row="3">запил больше обычного нет 10 дней на смене уволен 14.05.25</textarea>
-                                <div class="comment_body_footer">
-                                    <div class="btn_box_comment">
-                                        <button class="btn" type="button"><img
-                                                src="./accets/fonts/icon/comment_trashcan-outline.svg" alt=""></button>
-                                        <button class="btn" type="button"><img src="./accets/fonts/icon/comment_edit.svg"
-                                                                               alt=""></button>
-                                    </div>
-                                    <div class="comment_date">
-                                        <img src="./accets/fonts/icon/calendar.svg" alt="">
-                                        2025-05-14
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment_one">
-                            <div class="comment_name">Приходько Виктория</div>
-                            <div class="comment_body">
-                        <textarea class="text_comment" name="" id=""
-                                  row="3">запил больше обычного нет 10 дней на смене уволен 14.05.25</textarea>
-                                <div class="comment_body_footer">
-                                    <div class="btn_box_comment">
-                                        <button class="btn" type="button"><img
-                                                src="./accets/fonts/icon/comment_trashcan-outline.svg" alt=""></button>
-                                        <button class="btn" type="button"><img src="./accets/fonts/icon/comment_edit.svg"
-                                                                               alt=""></button>
-                                    </div>
-                                    <div class="comment_date">
-                                        <img src="./accets/fonts/icon/calendar.svg" alt="">
-                                        2025-05-14
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="comment_one">
-                            <div class="comment_name">Приходько Виктория</div>
-                            <div class="comment_body">
-                        <textarea class="text_comment" name="" id=""
-                                  row="3">запил больше обычного нет 10 дней на смене уволен 14.05.25</textarea>
-                                <div class="comment_body_footer">
-                                    <div class="btn_box_comment">
-                                        <button class="btn" type="button"><img
-                                                src="./accets/fonts/icon/comment_trashcan-outline.svg" alt=""></button>
-                                        <button class="btn" type="button"><img src="./accets/fonts/icon/comment_edit.svg"
-                                                                               alt=""></button>
-                                    </div>
-                                    <div class="comment_date">
-                                        <img src="./accets/fonts/icon/calendar.svg" alt="">
-                                        2025-05-14
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
+                    <ol class="comments_row my-5" id="commentsList">
+
                     </ol>
                     <!--End-Comment loading-->
                 </div>
@@ -239,4 +152,5 @@
             </div>
         </div>
     </div>
+
 </div>

@@ -1,12 +1,13 @@
 RewriteEngine On
-# Перенаправляем все запросы на default.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+
+# Разрешаем доступ к API файлам
+RewriteCond %{REQUEST_URI} ^/api/ [NC]
+RewriteRule ^ - [L]
+
+# Разрешаем прямой доступ к реальным файлам и директориям
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Все остальные запросы направляем в default.php
 RewriteRule ^(.*)$ default.php?page=$1 [QSA,L]
-
-# Или если хотите красивые URL без параметров
-RewriteRule ^([a-zA-Z0-9_-]+)/?$ default.php?page=$1 [L,QSA]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php

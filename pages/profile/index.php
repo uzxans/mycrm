@@ -6,16 +6,16 @@ $result = $stmt->fetch(PDO::FETCH_ASSOC);
 $totalCount = $result['count'];
 
 
-$stmt3 = pdo()->prepare("SELECT DATE_FORMAT(`date`, '%Y-%m-%d') AS date_formatted, COUNT(*) AS count
+$stmt3 = pdo()->prepare("SELECT DATE_FORMAT(`date_add`, '%Y-%m-%d') AS date_formatted, COUNT(*) AS count
                        FROM `hrapp`
                        WHERE `status` = 100
-                       AND `date` >= DATE_SUB(CURDATE(), INTERVAL 15 DAY)
+                       AND `date_add` >= DATE_SUB(CURDATE(), INTERVAL 15 DAY)
                        GROUP BY date_formatted");
 $stmt3->execute();
 $data3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
 
 
-$stmt4 = pdo()->prepare("SELECT DATE_FORMAT(`date`, '%Y-%m-%d') AS date_formatted, COUNT(*) AS count FROM `hrapp` WHERE `status` != 100 GROUP BY date_formatted");
+$stmt4 = pdo()->prepare("SELECT DATE_FORMAT(`date_add`, '%Y-%m-%d') AS date_formatted, COUNT(*) AS count FROM `hrapp` WHERE `status` != 100 GROUP BY date_formatted");
 $stmt4->execute();
 $data4 = $stmt4->fetchAll(PDO::FETCH_ASSOC);
 

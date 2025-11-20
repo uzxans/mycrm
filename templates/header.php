@@ -16,6 +16,13 @@ require_once __DIR__.'/../boot.php';
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title id="title">SystemReg</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?php echo root(); ?>/accets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?php echo root(); ?>/accets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="<?php echo root(); ?>/accets/favicon/site.webmanifest">
+
+
     <!-- Подключаем flatpickr -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -24,6 +31,11 @@ require_once __DIR__.'/../boot.php';
 
     <link rel="stylesheet" href="<?php echo root(); ?>/accets/style/css/main.css">
     <link rel="stylesheet" href="<?php echo root(); ?>/accets/fonts/style.css">
+
+
+    <!-- js-->
+    <script src="<?php echo root(); ?>/accets/js/jquery-3.7.1.min.js"></script>
+
 
     <!-- Page loading styles -->
     <style>
